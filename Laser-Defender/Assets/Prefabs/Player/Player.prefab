@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7131327559358198943}
   - component: {fileID: 7131327559358198942}
   - component: {fileID: 7131327559358198940}
-  m_Layer: 0
+  - component: {fileID: -3008167783459505733}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +93,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efec3a0a04e0054469dc4bd7a78cff9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
   projectileSpeed: 20
-  projectileFiringPeriod: 0.05
+  projectileFiringPeriod: 0.1
   laserProjectile: {fileID: 2998034327721262357, guid: 3365db9962b236c4bad47c6ff912f253,
     type: 3}
+  projectileSFX: {fileID: 8300000, guid: 7e06a3e966fb4b747adb521395d307b0, type: 3}
   screenPadding: 1
+  playerSpeed: 10
+  health: 200
+  deathSFX: {fileID: 8300000, guid: ffdb71e865e57fe4889fd4b101763fe2, type: 3}
+  deathSoundVolume: 0.5
+  projectileSoundVolume: 0.25
+--- !u!60 &-3008167783459505733
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131327559358198929}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.98, y: 0.75}
+    newSize: {x: 0.98, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.07, y: 0.375}
+      - {x: -0.089999996, y: 0.375}
+      - {x: -0.41, y: -0.095}
+      - {x: -0.48999998, y: -0.185}
+      - {x: -0.48999998, y: -0.315}
+      - {x: -0.19, y: -0.375}
+      - {x: 0.19999999, y: -0.375}
+      - {x: 0.48999998, y: -0.325}
+      - {x: 0.48999998, y: -0.175}
+      - {x: 0.14999999, y: 0.21499999}
