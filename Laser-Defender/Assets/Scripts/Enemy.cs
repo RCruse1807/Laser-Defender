@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float health = 300;
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private AudioClip deathSFX;
+    [SerializeField] private int scoreValue = 150;
 
     [Header("Enemy Projectile Fire Rate Config")]
     [SerializeField] private float shotCounter;
@@ -23,6 +24,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float explosionDuration = 1f;
     [Range(0f, 1f)][SerializeField] private float deathSoundVolume = 0.7f;
     [Range(0f, 1f)][SerializeField] private float projectileSoundVolume = 0.7f;
+    
+
+    
 
 
     
@@ -58,9 +62,6 @@ public class Enemy : MonoBehaviour
         GameObject enemyLaser = Instantiate(enemyProjectile, transform.position, Quaternion.identity) as GameObject;
         enemyLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -enemyProjectileSpeed);
         AudioSource.PlayClipAtPoint(projectileSXF, Camera.main.transform.position, projectileSoundVolume);
-        
-        
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -87,6 +88,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject enemyExplosionVFX = Instantiate(deathVFX, transform.position, Quaternion.identity) as GameObject;
         Destroy(enemyExplosionVFX, explosionDuration);
